@@ -10,6 +10,8 @@ Hardware Availability: links to where you can find this hardware
 
 Make example for this keyboard (after setting up your build environment):
 
+[Build guide (Japanese)](https://kamobanban.hateblo.jp/entry/2019/03/31/091442)
+
 ```bash
 make manta40:default
 sudo make manta40:default:avrdude
