@@ -1,1 +1,1 @@
-# The default keymap for manta40
+# The dvorak keymap for manta40
