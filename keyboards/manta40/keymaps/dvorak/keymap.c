@@ -64,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
       KC_LSFT, KC_SCLN,    KC_Q,    KC_J,    KC_K,    KC_X,            KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,  KC_ENT, \
   //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
-        LOWER,          KC_RGUI,   LOWER, KC_RALT, KC_BSPC,          KC_GRV,   RAISE, KC_SPC,   KC_GRV,           KC_TAB  \
+        LOWER,          KC_RGUI,   LOWER, KC_RALT, KC_BSPC,          KC_GRV,   RAISE,  KC_SPC,  KC_GRV,           KC_TAB  \
   //`--------/        \--------+--------+--------+--------'       `--------+--------+--------+--------/        \--------'
   ),
 
@@ -74,9 +74,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
       KC_GRV,    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,         KC_HOME, KC_LEFT, KC_DOWN,KC_RIGHT, KC_BSPC,  KC_DEL, \
   //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
-        _____,  KC_F11,  KC_F12,   XXXXX,   XXXXX,   XXXXX,          KC_END,   XXXXX,   XXXXX,   XXXXX,   XXXXX,  XXXXX,  \
+        _____,  KC_F11,  KC_F12,   XXXXX,   XXXXX,   XXXXX,          KC_END,   XXXXX,   XXXXX,   XXXXX,   XXXXX,   XXXXX, \
   //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
-        LOWER,          KC_RGUI,   LOWER, KC_RALT, KC_BSPC,           RAISE,   RAISE, KC_SPC,   KC_GRV,           KC_TAB  \
+        LOWER,          KC_RGUI,   LOWER, KC_RALT, KC_BSPC,           RAISE,   RAISE,  KC_SPC,  KC_GRV,           KC_TAB  \
   //`--------/        \--------+--------+--------+--------'       `--------+--------+--------+--------/        \--------'
  ),
 
@@ -86,9 +86,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
        KC_CTLTB,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,          KC_F11,  KC_F12,   XXXXX,   XXXXX,  KC_EQL, KC_BSLS, \
     //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
-        _____,     KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,           XXXXX, KC_PLUS,   XXXXX,   XXXXX,   XXXXX,  XXXXX, \
+        _____,     KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,           XXXXX, KC_PLUS,   XXXXX,   XXXXX,   XXXXX,   XXXXX, \
     //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
-        LOWER,            KC_RGUI,   LOWER, KC_RALT, KC_BSPC,           RAISE,   RAISE, KC_SPC,   KC_GRV,           KC_TAB  \
+        LOWER,            KC_RGUI,   LOWER, KC_RALT, KC_BSPC,           RAISE,   RAISE,  KC_SPC,  KC_GRV,           KC_TAB  \
     //`--------/        \--------+--------+--------+--------'       `--------+--------+--------+--------/        \--------'
   ),
 
@@ -100,101 +100,101 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
          XXXXX,   XXXXX,   XXXXX,   XXXXX,   XXXXX,   XXXXX,           XXXXX,   XXXXX,   XXXXX,   XXXXX,   XXXXX,   XXXXX, \
    //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
-         LOWER,          KC_RGUI,   LOWER, KC_RALT, KC_BSPC,           RAISE,   RAISE, KC_SPC,   KC_GRV,           KC_TAB  \
+         LOWER,          KC_RGUI,   LOWER, KC_RALT, KC_BSPC,           RAISE,   RAISE,  KC_SPC,  KC_GRV,           KC_TAB  \
    //`--------/        \--------+--------+--------+--------'       `--------+--------+--------+--------/        \--------'
   )
 };
 
 void persistent_default_layer_set(uint16_t default_layer) {
-  eeconfig_update_default_layer(default_layer);
-  default_layer_set(default_layer);
+    eeconfig_update_default_layer(default_layer);
+    default_layer_set(default_layer);
 }
 
 static inline void update_tri_layer_RGB(uint8_t layer1, uint8_t layer2, uint8_t layer3) {
-  if (IS_LAYER_ON(layer1) && IS_LAYER_ON(layer2)) {
-    layer_on(layer3);
-  } else {
-    layer_off(layer3);
-  }
+    if (IS_LAYER_ON(layer1) && IS_LAYER_ON(layer2)) {
+        layer_on(layer3);
+    } else {
+        layer_off(layer3);
+    }
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-case QWERTY:
-  if (record->event.pressed) {
-    persistent_default_layer_set(1UL<<_DVORAK);
-  }
-  return false;
-  break;
+    switch (keycode) {
+        case QWERTY:
+            if (record->event.pressed) {
+                persistent_default_layer_set(1UL<<_DVORAK);
+            }
+            return false;
+            break;
 
-  case LOWER:
-    if (record->event.pressed) {
-      layer_on(_LOWER);
-      update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
-    } else {
-      layer_off(_LOWER);
-      update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
+        case LOWER:
+            if (record->event.pressed) {
+                layer_on(_LOWER);
+                update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
+            } else {
+                layer_off(_LOWER);
+                update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
+            }
+            return false;
+            break;
+        case RAISE:
+            if (record->event.pressed) {
+                layer_on(_RAISE);
+                update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
+            } else {
+                layer_off(_RAISE);
+                update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
+            }
+            return false;
+            break;
+        case ADJUST:
+            if (record->event.pressed) {
+                layer_on(_ADJUST);
+            } else {
+                layer_off(_ADJUST);
+            }
+            return false;
+            break;
+        case RGBRST:
+#ifdef RGBLIGHT_ENABLE
+            if (record->event.pressed){
+                eeconfig_update_rgblight_default();
+                rgblight_enable();
+            }
+#endif
+            break;
     }
-    return false;
-    break;
-  case RAISE:
-    if (record->event.pressed) {
-      layer_on(_RAISE);
-      update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
-    } else {
-      layer_off(_RAISE);
-      update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
-    }
-    return false;
-    break;
-  case ADJUST:
-      if (record->event.pressed) {
-        layer_on(_ADJUST);
-      } else {
-        layer_off(_ADJUST);
-      }
-      return false;
-      break;
-  case RGBRST:
-    #ifdef RGBLIGHT_ENABLE
-      if (record->event.pressed){
-          eeconfig_update_rgblight_default();
-          rgblight_enable();
-      }
-      #endif
-    break;
-    }
-  return true;
+    return true;
 }
 
 #ifdef OLED_DRIVER_ENABLE
 
 void oled_task_user(void) {
-  // Host Keyboard Layer Status
-  oled_write_P(PSTR("Layer: "), false);
-  switch (biton32(layer_state)) {
-    case _DVORAK:
-      oled_write_P(PSTR("Default\n"), false);
-      break;
-    case _LOWER:
-      oled_write_P(PSTR("LOWER\n"), false);
-      break;
-    case _RAISE:
-      oled_write_P(PSTR("RAISE\n"), false);
-      break;
-    case _ADJUST:
-      oled_write_P(PSTR("ADJ\n"), false);
-      break;
-    default:
-      // Or use the write_ln shortcut over adding '\n' to the end of your string
-      oled_write_ln_P(PSTR("Undefined"), false);
-  }
+    // Host Keyboard Layer Status
+    oled_write_P(PSTR("Layer: "), false);
+    switch (biton32(layer_state)) {
+        case _DVORAK:
+            oled_write_P(PSTR("Default\n"), false);
+            break;
+        case _LOWER:
+            oled_write_P(PSTR("LOWER\n"), false);
+            break;
+        case _RAISE:
+            oled_write_P(PSTR("RAISE\n"), false);
+            break;
+        case _ADJUST:
+            oled_write_P(PSTR("ADJ\n"), false);
+            break;
+        default:
+            // Or use the write_ln shortcut over adding '\n' to the end of your string
+            oled_write_ln_P(PSTR("Undefined"), false);
+    }
 
-  // Host Keyboard LED Status
-  uint8_t led_usb_state = host_keyboard_leds();
-  oled_write_P(led_usb_state & (1<<USB_LED_NUM_LOCK) ? PSTR("NUMLCK ") : PSTR("       "), false);
-  oled_write_P(led_usb_state & (1<<USB_LED_CAPS_LOCK) ? PSTR("CAPLCK ") : PSTR("       "), false);
-  oled_write_P(led_usb_state & (1<<USB_LED_SCROLL_LOCK) ? PSTR("SCRLCK ") : PSTR("       "), false);
+    // Host Keyboard LED Status
+    uint8_t led_usb_state = host_keyboard_leds();
+    oled_write_P(led_usb_state & (1<<USB_LED_NUM_LOCK) ? PSTR("NUMLCK ") : PSTR("       "), false);
+    oled_write_P(led_usb_state & (1<<USB_LED_CAPS_LOCK) ? PSTR("CAPLCK ") : PSTR("       "), false);
+    oled_write_P(led_usb_state & (1<<USB_LED_SCROLL_LOCK) ? PSTR("SCRLCK ") : PSTR("       "), false);
 }
 
 #endif
