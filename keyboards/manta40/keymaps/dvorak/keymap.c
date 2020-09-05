@@ -54,6 +54,7 @@ enum custom_keycodes {
 #define KC_KNRM  AG_NORM
 #define KC_KSWP  AG_SWAP
 #define KC_CTLTB CTL_T(KC_TAB)
+#define MT_SS MT(MOD_LSFT, KC_SPC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_DVORAK] = LAYOUT( \
@@ -64,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
       KC_LSFT, KC_SCLN,    KC_Q,    KC_J,    KC_K,    KC_X,            KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,  KC_ENT, \
   //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
-        LOWER,          KC_RGUI,   LOWER, KC_RALT, KC_BSPC,          KC_GRV,   RAISE,  KC_SPC,  KC_GRV,           KC_TAB  \
+      KC_RALT,          KC_RGUI,   LOWER, KC_RALT,   XXXXX,           XXXXX,   RAISE,   MT_SS,  KC_GRV,           XXXXX   \
   //`--------/        \--------+--------+--------+--------'       `--------+--------+--------+--------/        \--------'
   ),
 
@@ -74,9 +75,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
       KC_GRV,    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,         KC_HOME, KC_LEFT, KC_DOWN,KC_RIGHT, KC_BSPC,  KC_DEL, \
   //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
-        _____,  KC_F11,  KC_F12,   XXXXX,   XXXXX,   XXXXX,          KC_END,   XXXXX,   XXXXX,   XXXXX,   XXXXX,   XXXXX, \
+      KC_LSFT,  KC_F11,  KC_F12,   XXXXX,   XXXXX,   XXXXX,          KC_END,   XXXXX,   XXXXX,   XXXXX,   XXXXX,   XXXXX, \
   //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
-        LOWER,          KC_RGUI,   LOWER, KC_RALT, KC_BSPC,           RAISE,   RAISE,  KC_SPC,  KC_GRV,           KC_TAB  \
+      KC_RALT,          KC_RGUI,   LOWER, KC_RALT,   XXXXX,           XXXXX,   RAISE,  KC_SPC,  KC_GRV,            XXXXX  \
   //`--------/        \--------+--------+--------+--------'       `--------+--------+--------+--------/        \--------'
  ),
 
@@ -86,9 +87,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
        KC_CTLTB,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,          KC_F11,  KC_F12,   XXXXX,   XXXXX,  KC_EQL, KC_BSLS, \
     //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
-        _____,     KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,           XXXXX, KC_PLUS,   XXXXX,   XXXXX,   XXXXX,   XXXXX, \
+        KC_LSFT,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,           XXXXX, KC_PLUS,   XXXXX,   XXXXX,   XXXXX,   XXXXX, \
     //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
-        LOWER,            KC_RGUI,   LOWER, KC_RALT, KC_BSPC,           RAISE,   RAISE,  KC_SPC,  KC_GRV,           KC_TAB  \
+        KC_RALT,          KC_RGUI,   LOWER, KC_RALT,   XXXXX,           XXXXX,   RAISE,  KC_SPC,  KC_GRV,            XXXXX  \
     //`--------/        \--------+--------+--------+--------'       `--------+--------+--------+--------/        \--------'
   ),
 
@@ -98,9 +99,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
       KC_CTLTB,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,           KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10, KC_PIPE, \
    //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
-         XXXXX,   XXXXX,   XXXXX,   XXXXX,   XXXXX,   XXXXX,           XXXXX,   XXXXX,   XXXXX,   XXXXX,   XXXXX,   XXXXX, \
+       KC_LSFT,   XXXXX,   XXXXX,   XXXXX,   XXXXX,   XXXXX,           XXXXX,   XXXXX,   XXXXX,   XXXXX,   XXXXX,   XXXXX, \
    //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
-         LOWER,          KC_RGUI,   LOWER, KC_RALT, KC_BSPC,           RAISE,   RAISE,  KC_SPC,  KC_GRV,           KC_TAB  \
+       KC_RALT,          KC_RGUI,   LOWER, KC_RALT,   XXXXX,           XXXXX,   RAISE,  KC_SPC,  KC_GRV,            XXXXX  \
    //`--------/        \--------+--------+--------+--------'       `--------+--------+--------+--------/        \--------'
   )
 };
