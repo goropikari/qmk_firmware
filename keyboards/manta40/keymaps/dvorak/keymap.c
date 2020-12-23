@@ -48,13 +48,16 @@ enum custom_keycodes {
 // #define KC_LVAD  RGB_VAD
 // #define KC_LSMOD RGB_SMOD
 
-#define TAPPING_FORCE_HOLD
-#define TAPPING_TERM 100
+
+// SandS
+// https://qiita.com/rai_suta/items/0376ed4ce6498bb85770
+// #define TAPPING_FORCE_HOLD
+#define TAPPING_TERM 25
+#define MT_SS MT(MOD_LSFT, KC_SPC)
 
 #define KC_KNRM  AG_NORM
 #define KC_KSWP  AG_SWAP
 #define KC_CTLTB CTL_T(KC_TAB)
-#define MT_SS MT(MOD_LSFT, KC_SPC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_DVORAK] = LAYOUT( \
@@ -65,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
       KC_LSFT, KC_SCLN,    KC_Q,    KC_J,    KC_K,    KC_X,            KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,  KC_ENT, \
   //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
-      KC_RALT,          KC_RGUI,   LOWER, KC_RALT,   XXXXX,           XXXXX,   RAISE,   MT_SS,  KC_GRV,           XXXXX   \
+    KC_PGDOWN,          KC_RGUI,   LOWER, KC_RALT,   XXXXX,           XXXXX,   RAISE,   MT_SS,  KC_GRV,           KC_SPC  \
   //`--------/        \--------+--------+--------+--------'       `--------+--------+--------+--------/        \--------'
   ),
 
@@ -77,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
       KC_LSFT,  KC_F11,  KC_F12,   XXXXX,   XXXXX,   XXXXX,          KC_END,   XXXXX,   XXXXX,   XXXXX,   XXXXX,   XXXXX, \
   //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
-      KC_RALT,          KC_RGUI,   LOWER, KC_RALT,   XXXXX,           XXXXX,   RAISE,  KC_SPC,  KC_GRV,            XXXXX  \
+      KC_RALT,          KC_RGUI,   LOWER, KC_RALT,   XXXXX,           XXXXX,   RAISE,   MT_SS,  KC_GRV,           KC_SPC  \
   //`--------/        \--------+--------+--------+--------'       `--------+--------+--------+--------/        \--------'
  ),
 
@@ -89,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
         KC_LSFT,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,           XXXXX, KC_PLUS,   XXXXX,   XXXXX,   XXXXX,   XXXXX, \
     //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
-        KC_RALT,          KC_RGUI,   LOWER, KC_RALT,   XXXXX,           XXXXX,   RAISE,  KC_SPC,  KC_GRV,            XXXXX  \
+        KC_RALT,          KC_RGUI,   LOWER, KC_RALT,   XXXXX,           XXXXX,   RAISE,   MT_SS,  KC_GRV,           KC_SPC  \
     //`--------/        \--------+--------+--------+--------'       `--------+--------+--------+--------/        \--------'
   ),
 
@@ -101,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
        KC_LSFT,   XXXXX,   XXXXX,   XXXXX,   XXXXX,   XXXXX,           XXXXX,   XXXXX,   XXXXX,   XXXXX,   XXXXX,   XXXXX, \
    //|--------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
-       KC_RALT,          KC_RGUI,   LOWER, KC_RALT,   XXXXX,           XXXXX,   RAISE,  KC_SPC,  KC_GRV,            XXXXX  \
+       KC_RALT,          KC_RGUI,   LOWER, KC_RALT,   XXXXX,           XXXXX,   RAISE,   MT_SS,  KC_GRV,           KC_SPC  \
    //`--------/        \--------+--------+--------+--------'       `--------+--------+--------+--------/        \--------'
   )
 };
